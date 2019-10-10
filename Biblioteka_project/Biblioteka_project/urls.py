@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.urls import path
+from Biblioteka_app.views import ListOfBooks, SearchResultsView
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    path('home/', ListOfBooks.as_view(), name='listofbooks'),
+    path('search/results/', SearchResultsView.as_view(), name='search_results'),
 ]
