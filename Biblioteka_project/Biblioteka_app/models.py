@@ -8,14 +8,14 @@ class Book(models.Model):
     author = ArrayField(ArrayField(models.TextField()))
     published_date = models.DateField()
     page_count = models.IntegerField()
-    image_links = models.ForeignKey('ImageLinks',on_delete=models.CASCADE)
+    image_links = models.ForeignKey('ImageLinks',on_delete=models.CASCADE,null=True)
     language = models.CharField(max_length=10)
 
 
 class IndustryIdentifiers(models.Model):
     type = models.TextField()
     identifier = models.TextField(unique=True)
-    book = models.ForeignKey('Book',on_delete=models.CASCADE)
+    book = models.ForeignKey('Book',on_delete=models.CASCADE,null=True)
 
 
 class ImageLinks(models.Model):
@@ -24,4 +24,4 @@ class ImageLinks(models.Model):
     small = models.TextField(validators=[URLValidator()],blank=True)
     medium = models.TextField(validators=[URLValidator()],blank=True)
     large = models.TextField(validators=[URLValidator()],blank=True)
-    extraLarge = models.TextField(validators=[URLValidator()],blank=True)
+    extra_large = models.TextField(validators=[URLValidator()],blank=True)

@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'Biblioteka_project.wsgi.application'
 DATABASES = {
     'default': {
         'HOST': '127.0.0.1',
-        'NAME': 'oddam_database',
+        'NAME': 'Biblioteka',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'USER': 'postgres',
         'PASSWORD': 'coderslab',

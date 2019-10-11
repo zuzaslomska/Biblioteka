@@ -7,7 +7,23 @@
 <body>
     <ol>
         {% for book in object_list %}
-            <li> {{ book.title }}, {{ book.author }}, {{ book.published_date }}, {{ book.page_count }}, {{ book.image_links }}, {{ book.language }}, {{ book.author }},</a></li>
+            <li>
+                Tytuł: {{ book.title }},
+                autor: {{ book.author }},
+                data wydania: {{ book.published_date }},
+                ilość stron: {{ book.page_count }},
+                okładka: {{ book.image_links.small_thumbnail }}
+                {{ book.image_links.thumbnail }}
+                {{ book.image_links.small }}
+                {{ book.image_links.medium }}
+                {{ book.image_links.large }}
+                {{ book.image_links.extra_large }},
+                język: {{ book.language }},
+            {% endfor %}
+            {% for book_id in object_list %}
+                typ: {{ book_id.type }},
+                identyfikator: {{ book_id.identifier }}
+            </li>
         {% endfor %}
     </ol>
 
