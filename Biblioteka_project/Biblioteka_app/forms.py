@@ -48,3 +48,12 @@ class BookMultiForm(MultiModelForm):
         'book': BookForm,
         'id': IndustryIdentifiersForm,
     }
+
+class SearchBookForm(forms.ModelForm):
+    date_from = forms.DateField(widget=forms.SelectDateWidget(years=range(1850,now.year+1)))
+    date_to = forms.DateField(widget=forms.SelectDateWidget(years=range(1850, now.year + 1)))
+    class Meta:
+        model = Book
+        fields = ['title','author','language']
+
+

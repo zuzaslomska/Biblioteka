@@ -19,13 +19,18 @@
                 {{ book.image_links.large }}
                 {{ book.image_links.extra_large }},
                 język: {{ book.language }},
-            {% endfor %}
             {% for book_id in object_list %}
                 typ: {{ book_id.type }},
                 identyfikator: {{ book_id.identifier }}
+            {% endfor %}
             </li>
         {% endfor %}
     </ol>
+    <form method="GET">
+        {{ form.as_p }}
+        <input type="submit" value="Wyszukaj">
+        {% csrf_token %}
+    </form>
 
 </body>
 </html>
