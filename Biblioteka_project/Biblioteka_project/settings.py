@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Biblioteka_app'
+    'Biblioteka_app',
+    'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
