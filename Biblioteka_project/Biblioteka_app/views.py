@@ -74,7 +74,7 @@ class BooksPageView(TemplateView):
         if query is not None:
             x = get_books(query, auth_key)
             for i in range(len(x)):
-                book = x[i]['volumeInfo', '']
+                book = x[i]['volumeInfo']
                 first_loop = True
                 for k, v in book.get('imageLinks', {}).items():
                     k = camel_case_split(k)
@@ -105,7 +105,7 @@ class BooksPageView(TemplateView):
                                     page_count=book.get('page_count'),
                                     image_links=image,
                                     language=book.get('language', ''),
-                                    authors=book.get('authors', '')
+                                    authors=book.get('authors', {})
                 )
 
                 for i in range(len(book.get('industryIdentifiers', ''))):

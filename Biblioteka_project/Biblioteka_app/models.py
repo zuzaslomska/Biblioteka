@@ -4,24 +4,24 @@ from django.core.validators import URLValidator
 
 
 class Book(models.Model):
-    title = models.TextField()
-    authors = ArrayField(ArrayField(models.TextField()))
-    published_date = models.DateField()
-    page_count = models.IntegerField()
-    image_links = models.ForeignKey('ImageLinks', on_delete=models.CASCADE, null=True)
-    language = models.CharField(max_length=10)
+    title = models.TextField(null=True)
+    authors = ArrayField(ArrayField(models.TextField(null=True)))
+    published_date = models.DateField(null=True)
+    page_count = models.IntegerField(null=True)
+    image_links = models.ForeignKey('ImageLinks', on_delete=models.SET_NULL, null=True)
+    language = models.CharField(max_length=10, null=True)
 
 
 class IndustryIdentifiers(models.Model):
-    type = models.TextField()
-    identifier = models.TextField(unique=True)
-    book = models.ForeignKey('Book', on_delete=models.CASCADE, null=True)
+    type = models.TextField(null=True)
+    identifier = models.TextField(null=True)
+    book = models.ForeignKey('Book', on_delete=models.SET_NULL, null=True)
 
 
 class ImageLinks(models.Model):
-    small_thumbnail = models.TextField(validators=[URLValidator()], blank=True)
-    thumbnail = models.TextField(validators=[URLValidator()], blank=True)
-    small = models.TextField(validators=[URLValidator()], blank=True)
-    medium = models.TextField(validators=[URLValidator()], blank=True)
-    large = models.TextField(validators=[URLValidator()], blank=True)
-    extra_large = models.TextField(validators=[URLValidator()], blank=True)
+    small_thumbnail = models.TextField(validators=[URLValidator()], null=True)
+    thumbnail = models.TextField(validators=[URLValidator()], null=True)
+    small = models.TextField(validators=[URLValidator()], null=True)
+    medium = models.TextField(validators=[URLValidator()], null=True)
+    large = models.TextField(validators=[URLValidator()], null=True)
+    extra_large = models.TextField(validators=[URLValidator()], null=True)
