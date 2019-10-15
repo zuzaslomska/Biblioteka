@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ol>
+        {% for book in object_list %}
+            <li>
+                Title: {{ book.title }},
+                author/s: {{ book.authors }},
+                published date: {{ book.published_date }},
+                page count: {{ book.page_count }},
+                front cover: {{ book.image_links.small_thumbnail }}
+                {{ book.image_links.thumbnail }}
+                {{ book.image_links.small }}
+                {{ book.image_links.medium }}
+                {{ book.image_links.large }}
+                {{ book.image_links.extra_large }},
+                language(acronym): {{ book.language }}
+            </li>
+        {% endfor %}
+    </ol>
+    <form method="GET">
+        {{ form.as_p }}
+        <input type="submit" value="Search">
+        {% csrf_token %}
+    </form>
+
+</body>
+</html>
