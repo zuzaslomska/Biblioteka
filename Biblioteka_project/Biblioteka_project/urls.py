@@ -16,12 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
-from Biblioteka_app.views import ListOfBooks, AddBookView
+from Biblioteka_app.views import ListOfBooksView, AddBookView, BooksPageView, ListOfBooksRestView
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    path('home/', ListOfBooks.as_view(), name='list_of_books'),
-#    path('search/results/', SearchResultsView.as_view(), name='search_results'),
-    path('add_book/', AddBookView.as_view(), name='add_book'),
+    path('home/', ListOfBooksView.as_view(), name='list_of_books'),
+    path('books/page/', BooksPageView.as_view(), name='books_page'),
+    path('add/book/', AddBookView.as_view(), name='add_book'),
+    path('list/book/', ListOfBooksRestView.as_view(), name='list_of_books_rest'),
 ]

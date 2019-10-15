@@ -8,27 +8,23 @@
     <ol>
         {% for book in object_list %}
             <li>
-                Tytuł: {{ book.title }},
-                autor: {{ book.author }},
-                data wydania: {{ book.published_date }},
-                ilość stron: {{ book.page_count }},
-                okładka: {{ book.image_links.small_thumbnail }}
+                Title: {{ book.title }},
+                author/s: {{ book.authors }},
+                published date: {{ book.published_date }},
+                page count: {{ book.page_count }},
+                front cover: {{ book.image_links.small_thumbnail }}
                 {{ book.image_links.thumbnail }}
                 {{ book.image_links.small }}
                 {{ book.image_links.medium }}
                 {{ book.image_links.large }}
                 {{ book.image_links.extra_large }},
-                język: {{ book.language }},
-            {% for book_id in object_list %}
-                typ: {{ book_id.type }},
-                identyfikator: {{ book_id.identifier }}
-            {% endfor %}
+                language(acronym): {{ book.language }}
             </li>
         {% endfor %}
     </ol>
     <form method="GET">
         {{ form.as_p }}
-        <input type="submit" value="Wyszukaj">
+        <input type="submit" value="Search">
         {% csrf_token %}
     </form>
 

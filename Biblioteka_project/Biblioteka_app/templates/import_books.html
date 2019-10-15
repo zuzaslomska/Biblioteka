@@ -5,9 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-    <form method="POST">
+    <form method="GET">
         {{ form.as_p }}
-        <input type="submit" value="Add book">
+        <input type="submit" value="Import">
         {% csrf_token %}
     </form>
 </body>
